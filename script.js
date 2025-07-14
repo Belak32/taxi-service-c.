@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const tariff = document.getElementById("tariff").value;
 
     if (from && to && phone && tariff) {
-      // Визначаємо назву тарифу
       let tariffText = "";
       switch (tariff) {
         case "econom":
