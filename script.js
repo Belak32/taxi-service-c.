@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Перемикання вкладок по меню
+  // Перемикання між вкладками
   const navLinks = document.querySelectorAll("nav a");
 
   navLinks.forEach(link => {
@@ -50,16 +50,14 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const page = link.getAttribute("data-page");
 
-      pages.forEach(section => {
-        section.classList.add("hidden");
-      });
+      pages.forEach(section => section.classList.add("hidden"));
 
       const activePage = document.getElementById(page);
       activePage?.classList.remove("hidden");
     });
   });
 
-  // Перемикання по кнопках, які мають data-page (наприклад, на головній)
+  // Перемикання при натисканні на кнопку на головній
   const pageButtons = document.querySelectorAll("[data-page]:not(nav a)");
 
   pageButtons.forEach(btn => {
@@ -67,9 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const page = btn.getAttribute("data-page");
 
-      pages.forEach(section => {
-        section.classList.add("hidden");
-      });
+      pages.forEach(section => section.classList.add("hidden"));
 
       const activePage = document.getElementById(page);
       activePage?.classList.remove("hidden");
