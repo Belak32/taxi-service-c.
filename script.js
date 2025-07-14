@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("taxiForm");
   const confirmation = document.getElementById("confirmation");
+  const pages = document.querySelectorAll(".page-section");
 
-  // Обробка форми
+  // Обробка форми замовлення
   form?.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -41,14 +42,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Перемикання сторінок
+  // Перемикання вкладок по меню
   const navLinks = document.querySelectorAll("nav a");
-  const pages = document.querySelectorAll(".page-section");
 
   navLinks.forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       const page = link.getAttribute("data-page");
+
+      pages.forEach(section => {
+        section.classList.add("hidden");
+      });
+
+      const activePage = document.getElementById(page);
+      activePage?.classList.remove("hidden");
+    });
+  });
+
+  // Перемикання по кнопках, які мають data-page (наприклад, на головній)
+  const pageButtons = document.querySelectorAll("[data-page]:not(nav a)");
+
+  pageButtons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const page = btn.getAttribute("data-page");
 
       pages.forEach(section => {
         section.classList.add("hidden");
