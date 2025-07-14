@@ -9,13 +9,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const from = document.getElementById("from").value.trim();
     const to = document.getElementById("to").value.trim();
     const phone = document.getElementById("phone").value.trim();
+    const tariff = document.getElementById("tariff").value;
 
-    if (from && to && phone) {
+    if (from && to && phone && tariff) {
+      // Визначаємо назву тарифу
+      let tariffText = "";
+      switch (tariff) {
+        case "econom":
+          tariffText = "Економ";
+          break;
+        case "comfort":
+          tariffText = "Комфорт";
+          break;
+        case "business":
+          tariffText = "Бізнес";
+          break;
+        default:
+          tariffText = "Невідомий тариф";
+      }
+
       confirmation.classList.remove("hidden");
       confirmation.innerHTML = `
         <h3>Замовлення прийнято!</h3>
         <p>Машина скоро прибуде з <strong>${from}</strong> до <strong>${to}</strong>.</p>
         <p>Ми зателефонуємо вам на номер <strong>${phone}</strong>.</p>
+        <p>Обраний тариф: <strong>${tariffText}</strong></p>
       `;
       form.reset();
     } else {
