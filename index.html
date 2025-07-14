@@ -10,9 +10,10 @@
   <header>
     <h1>Tra-ta-ta Таксі</h1>
     <nav>
-      <a href="#" data-page="order-form">Головна</a>
+      <a href="#" data-page="home">Головна</a>
       <a href="#" data-page="about">Про нас</a>
       <a href="#" data-page="contacts">Контакти</a>
+      <a href="#" data-page="order-form">Замовити таксі</a>
     </nav>
   </header>
 
@@ -31,6 +32,15 @@
         <label>
           Телефон:
           <input type="tel" id="phone" required pattern="^\+?[\d\s\-]{10,15}$" />
+        </label>
+        <label>
+          Тариф:
+          <select id="tariff" required>
+            <option value="">Оберіть тариф</option>
+            <option value="econom">Економ</option>
+            <option value="comfort">Комфорт</option>
+            <option value="business">Бізнес</option>
+          </select>
         </label>
         <button type="submit">Замовити</button>
       </form>
